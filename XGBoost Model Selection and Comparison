@@ -1,68 +1,60 @@
-XGBoost Model Selection and Comparison
-Why XGBoost (After Tuning)?
-Strong Model Performance: XGBoost is a powerful model that works well with various data types.
+--------------------------------------------------------------------------REPORT-------------------------------------------------------------------------------------
 
-Captures Complex Patterns: It can model non-linear relationships effectively between features (inputs) and the target (output).
+WHY XGBOOST (AFTER TUNNING)?
 
-Prevents Overfitting: Uses techniques like regularization to minimize overfitting compared to other models.
+- Strong Model Performance: XGBoost is a powerful model that works well with various data types.
+- Captures Complex Patterns: It can model non-linear relationships effectively between features (inputs) and the target (output).
+- Prevents Overfitting: Uses techniques like regularization to minimize overfitting compared to other models.
+- Performance Boost After Tuning: Model tuning (hyperparameter adjustment) led to improved performance on both training and test datasets.
+- Handles Complex Data Well: Especially useful for datasets with intricate patterns that simpler models might not capture.
 
-Performance Boost After Tuning: Model tuning (hyperparameter adjustment) led to improved performance on both training and test datasets.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Handles Complex Data Well: Especially useful for datasets with intricate patterns that simpler models might not capture.
+WHY NOT THE OTHER MODELS?
 
-Why Not the Other Models?
-Linear Regression
-Assumes a simple linear relationship.
+* Linear Regression:
+- Assumes a simple linear relationship.
+- Struggles with complex, non-linear patterns, resulting in lower predictive performance.
 
-Struggles with complex, non-linear patterns, resulting in lower predictive performance.
+* Random Forest
+- Performs well with complex data.
+- However, XGBoost outperforms it due to boosting, which continuously corrects errors and reduces overfitting.
 
-Random Forest
-Performs well with complex data.
+* Gradient Boosting
+- Learns from previous mistakes, improving performance.
+- XGBoost refines this by adding regularization and using a more efficient tree-building approach.
 
-However, XGBoost outperforms it due to boosting, which continuously corrects errors and reduces overfitting.
+* LightGBM
+- Efficient, especially for large datasets.
+- XGBoost often performs better due to superior parameter tuning and feature handling.
 
-Gradient Boosting
-Learns from previous mistakes, improving performance.
+* MLPRegressor (Neural Networks)
+- Requires proper tuning to work well.
+- Did not perform optimally in this case, likely due to difficulty in optimization for the dataset.
+- Even after tuning, improvements were minimal compared to XGBoost.
 
-XGBoost refines this by adding regularization and using a more efficient tree-building approach.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-LightGBM
-Efficient, especially for large datasets.
+ISSUES AND APPROACHES 
 
-XGBoost often performs better due to superior parameter tuning and feature handling.
+* Complex Relationships
+- Some models (e.g., Linear Regression, SVR) struggled with capturing non-linear patterns.
+- Used ensemble methods like Random Forest, Gradient Boosting, XGBoost, and LightGBM to better capture interactions.
 
-MLPRegressor (Neural Networks)
-Requires proper tuning to work well.
+* Handling Rare Categories
+- Some categorical features had rare categories that were not helpful for prediction.
+- Grouped rare categories into an "Others" category to simplify data and reduce overfitting.
 
-Did not perform optimally in this case, likely due to difficulty in optimization for the dataset.
+* Model Selection
+- Evaluated multiple models using R², MAE, and MSE.
+- Linear Regression and Neural Networks showed lower performance and high variability.
+- Random Forest and Gradient Boosting (after tuning) performed best.
+- Checked for data leakage using k-fold cross-validation.
 
-Even after tuning, improvements were minimal compared to XGBoost.
+* Data Preprocessing
+- Raw data required cleaning and transformation.
+- Feature engineering helped improve model performance.
+- Missing values were imputed to maintain data integrity.
+- Target outliers were handled using log transformation.
 
-Issues and Approaches
-Complex Relationships
-Some models (e.g., Linear Regression, SVR) struggled with capturing non-linear patterns.
-
-Used ensemble methods like Random Forest, Gradient Boosting, XGBoost, and LightGBM to better capture interactions.
-
-Handling Rare Categories
-Some categorical features had rare categories that were not helpful for prediction.
-
-Grouped rare categories into an "Others" category to simplify data and reduce overfitting.
-
-Model Selection
-Evaluated multiple models using R², MAE, and MSE.
-
-Linear Regression and Neural Networks showed lower performance and high variability.
-
-Random Forest and Gradient Boosting (after tuning) performed best.
-
-Checked for data leakage using k-fold cross-validation.
-
-Data Preprocessing
-Raw data required cleaning and transformation.
-
-Feature engineering helped improve model performance.
-
-Missing values were imputed to maintain data integrity.
-
-Target outliers were handled using log transformation.
+----------------------------------------------------------------------------------END--------------------------------------------------------------------------------
